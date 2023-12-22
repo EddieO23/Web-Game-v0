@@ -10,7 +10,7 @@ body {
 
 
 .title {
-    background-color: #fff;
+    background-color: #009cb8;
     width: 100vw;  
     text-align: center; 
 }
@@ -20,6 +20,7 @@ body {
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
 }
 .container {
     padding: 20px 25px 25px;
@@ -27,8 +28,7 @@ body {
     border-radius: 15px;
     max-width: 330px;
     width: 100%;
-    transition: all 0.3s ease
-}
+    }
 .container.hide {
     opacity: 0;
     pointer-events: none;
@@ -74,10 +74,17 @@ body {
 
 /* playboard area */
 .play-board {
-    display: none;
-}
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+.play-board.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+}    
 .play-board .details {
-    background: rgba(131, 173, 131, 0.52);
+    background: rgba(0, 0, 0, 0.432);
     padding: 7px;
     border-radius: 10px;
 }
@@ -98,14 +105,25 @@ color: purple;
     font-weight: 400;
     cursor: default;
     text-align: center;
-    background: rgba(0, 0, 0, 0.241);
+    background: rgba(247, 3, 3, 0.557); /* this changes the color of the "O's box" */
     position: relative;
     z-index: 5;
+    transition: all 0.3s ease;
 }
 
 .play-board section{
     display: flex;
 }
+.players.active span:first-child {
+color: black;
+}
+.players.active span:nth-child(2) {
+color: rgb(255, 255, 255);
+}
+.players.active .slider {
+left: 50%;
+}
+
 .play-board .play-area{
     margin-top: 20px;
 }
@@ -114,7 +132,7 @@ color: purple;
     display: block;
     height: 80px;
     width: 80px;
-    background: rgba(182, 179, 35, 0.753); /*this is where you change the color for the box's*/
+    background: rgba(35, 182, 106, 0.753); /*this is where you change the color for the box's*/
     border-radius: 8px;
     font-size: 40px;
     text-align: center;
@@ -129,6 +147,7 @@ color: purple;
     background: lightblue;
     border-radius: 7px;
     z-index: 2;
+    transition: all 0.3s ease;
 }
 .result-box {
     background: #fff;
