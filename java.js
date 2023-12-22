@@ -21,11 +21,13 @@ selectOBtn.onclick = () => {
 }
 }
 
-let playerXicon = "huh" //class name of fontawesome cross icon
-let playerOicon = "huh circle" //class name of fontawesome circle icon
+let playerXicon = "fa regular fa-circle"; //class name of fontawesome cross icon
+let playerOicon = "fa-solid fa-x"; //class name of fontawesome circle icon
 
 function clickedBox(element) {
-    if(players,classList.contains("")){
-
+    if(players.classList.contains("player")){
+        element.innerHTML = `<i class="fa-solid fa-x"></i>`
+    }else {
+        element.innerHTML = `<i class="fa-regular fa-circle"></i>`;
     }
 }
